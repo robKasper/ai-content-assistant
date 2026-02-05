@@ -8,7 +8,8 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { FiCopy, FiRefreshCw, FiLogOut } from 'react-icons/fi'
+import { FiCopy, FiRefreshCw, FiLogOut, FiClock } from 'react-icons/fi'
+import Link from 'next/link'
 import { User } from '@supabase/supabase-js'
 
 export default function DashboardPage() {
@@ -118,6 +119,12 @@ export default function DashboardPage() {
             <Badge variant="outline" className="text-base px-3 py-1">
               {credits}/10 Credits
             </Badge>
+            <Link href="/history">
+              <Button variant="ghost" size="sm">
+                <FiClock className="mr-2" />
+                History
+              </Button>
+            </Link>
             <Button variant="ghost" size="sm" onClick={handleLogout}>
               <FiLogOut className="mr-2" />
               Logout
