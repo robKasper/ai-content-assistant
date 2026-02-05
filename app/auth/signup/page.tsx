@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { SubmitEventHandler, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -24,7 +24,7 @@ export default function SignupPage() {
   const router = useRouter();
   const supabase = createClient();
 
-  const handleSignup = async (e: React.FormEvent) => {
+  const handleSignup: SubmitEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -53,8 +53,8 @@ export default function SignupPage() {
           <CardHeader>
             <CardTitle>Check Your Email</CardTitle>
             <CardDescription>
-              We&apos;ve sent you a confirmation email. Click the link to activate
-              your account.
+              We&apos;ve sent you a confirmation email. Click the link to
+              activate your account.
             </CardDescription>
           </CardHeader>
           <CardFooter>
