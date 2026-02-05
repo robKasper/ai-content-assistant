@@ -78,7 +78,7 @@ export default function AuthCard({ mode, onSubmit, loading, error }: AuthCardPro
               />
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col gap-4">
+          <CardFooter className="flex flex-col gap-4 py-4">
             <Button type="submit" className="w-full" disabled={loading}>
               {buttonText}
             </Button>
