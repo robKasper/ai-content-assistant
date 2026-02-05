@@ -63,7 +63,7 @@ function TypewriterDemo() {
       <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-25"></div>
       <Card className="relative bg-white">
         <CardContent className="p-6">
-          <div className="flex items-center gap-2 mb-4 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-2 mb-4 text-xs sm:text-sm text-gray-500">
             <span className="px-2 py-1 bg-gray-100 rounded">Topic: How to invest in real estate</span>
             <span className="px-2 py-1 bg-gray-100 rounded">Keyword: real estate investing</span>
           </div>
@@ -83,35 +83,35 @@ export default function LandingPage() {
       {/* Navigation */}
       <nav className="container mx-auto px-4 py-6 flex justify-between items-center">
         <h1 className="text-xl font-bold">AI Content Assistant</h1>
-        <div className="flex gap-4">
+        <div className="flex gap-2 sm:gap-4">
           <Link href="/auth/login">
-            <Button variant="ghost">Sign In</Button>
+            <Button variant="ghost" size="sm" className="sm:size-default">Sign In</Button>
           </Link>
           <Link href="/auth/signup">
-            <Button>Get Started</Button>
+            <Button size="sm" className="sm:size-default">Get Started</Button>
           </Link>
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="container mx-auto px-4 py-16 text-center">
-        <h2 className="text-5xl font-bold tracking-tight text-gray-900 mb-6">
+      <section className="container mx-auto px-4 py-8 sm:py-16 text-center">
+        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-6">
           Generate SEO Blog Outlines
           <br />
           <span className="text-blue-600">In Seconds</span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
           Stop staring at blank pages. Enter your topic and keyword, and let AI create
           a comprehensive, SEO-optimized blog outline instantly.
         </p>
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/auth/signup">
-            <Button size="lg" className="text-lg px-8">
+            <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto">
               Start Free
             </Button>
           </Link>
           <Link href="/auth/login">
-            <Button size="lg" variant="outline" className="text-lg px-8">
+            <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto">
               Sign In
             </Button>
           </Link>
@@ -131,7 +131,7 @@ export default function LandingPage() {
 
       {/* Features */}
       <section className="container mx-auto px-4 py-16">
-        <h3 className="text-3xl font-bold text-center mb-12">Why Content Creators Love Us</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Why Content Creators Love Us</h3>
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="text-center">
             <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -160,7 +160,7 @@ export default function LandingPage() {
       {/* How It Works */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12">How It Works</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">How It Works</h3>
           <div className="flex flex-col md:flex-row gap-8 max-w-3xl mx-auto">
             <div className="flex-1 text-center">
               <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
@@ -190,7 +190,7 @@ export default function LandingPage() {
       {/* Pricing */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-md mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-4">Start Free</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold mb-4">Start Free</h3>
           <p className="text-gray-600 mb-8">No credit card required</p>
           <Card>
             <CardContent className="p-8">

@@ -119,24 +119,26 @@ export default function HistoryPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <Link href="/dashboard">
-              <Button variant="ghost" size="sm">
-                <FiArrowLeft className="mr-2" />
-                Back to Dashboard
-              </Button>
-            </Link>
-            <h1 className="text-2xl font-bold">Generation History</h1>
+        <div className="container mx-auto px-4 py-3 sm:py-4">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <Link href="/dashboard">
+                <Button variant="ghost" size="sm">
+                  <FiArrowLeft className="sm:mr-2" />
+                  <span className="hidden sm:inline">Back to Dashboard</span>
+                </Button>
+              </Link>
+              <h1 className="text-lg sm:text-2xl font-bold">History</h1>
+            </div>
+            <Badge variant="outline" className="text-sm sm:text-base px-2 sm:px-3 py-1 w-fit">
+              {generations.length} generations
+            </Badge>
           </div>
-          <Badge variant="outline" className="text-base px-3 py-1">
-            {generations.length} generations
-          </Badge>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-4 sm:py-8">
         {/* Search */}
         <div className="mb-6">
           <div className="relative max-w-md">
@@ -163,19 +165,19 @@ export default function HistoryPage() {
           <div className="space-y-4">
             {filteredGenerations.map((generation) => (
               <Card key={generation.id}>
-                <CardContent className="p-4">
-                  <div className="flex items-start justify-between gap-4">
+                <CardContent className="p-3 sm:p-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4">
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h3 className="font-semibold text-lg truncate">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <h3 className="font-semibold text-base sm:text-lg truncate">
                           {generation.topic}
                         </h3>
-                        <Badge variant="outline">{generation.keyword}</Badge>
+                        <Badge variant="outline" className="text-xs sm:text-sm">{generation.keyword}</Badge>
                       </div>
-                      <p className="text-sm text-gray-500 mb-2">
+                      <p className="text-xs sm:text-sm text-gray-500 mb-2">
                         {formatDate(generation.created_at)}
                       </p>
-                      <p className="text-sm text-gray-600 font-mono">
+                      <p className="text-xs sm:text-sm text-gray-600 font-mono hidden sm:block">
                         {truncateOutput(generation.output)}
                       </p>
                     </div>
@@ -185,16 +187,16 @@ export default function HistoryPage() {
                         size="sm"
                         onClick={() => setSelectedGeneration(generation)}
                       >
-                        <FiEye className="mr-1" />
-                        View
+                        <FiEye className="sm:mr-1" />
+                        <span className="hidden sm:inline">View</span>
                       </Button>
                       <Button
                         variant="outline"
                         size="sm"
                         onClick={() => handleCopy(generation.output)}
                       >
-                        <FiCopy className="mr-1" />
-                        Copy
+                        <FiCopy className="sm:mr-1" />
+                        <span className="hidden sm:inline">Copy</span>
                       </Button>
                       <Button
                         variant="outline"
@@ -218,10 +220,10 @@ export default function HistoryPage() {
         open={!!selectedGeneration}
         onOpenChange={() => setSelectedGeneration(null)}
       >
-        <DialogContent className="max-w-3xl max-h-[80vh] overflow-hidden flex flex-col">
+        <DialogContent className="max-w-[95vw] sm:max-w-3xl max-h-[85vh] overflow-hidden flex flex-col">
           <DialogHeader>
-            <DialogTitle>{selectedGeneration?.topic}</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-base sm:text-lg">{selectedGeneration?.topic}</DialogTitle>
+            <DialogDescription className="text-xs sm:text-sm">
               Keyword: {selectedGeneration?.keyword} •{" "}
               {selectedGeneration && formatDate(selectedGeneration.created_at)}
             </DialogDescription>
@@ -230,7 +232,7 @@ export default function HistoryPage() {
             <Textarea
               value={selectedGeneration?.output || ""}
               readOnly
-              className="min-h-[400px] font-mono text-sm"
+              className="min-h-[250px] sm:min-h-[400px] font-mono text-xs sm:text-sm"
             />
           </div>
           <DialogFooter>
@@ -239,6 +241,7 @@ export default function HistoryPage() {
               onClick={() =>
                 selectedGeneration && handleCopy(selectedGeneration.output)
               }
+              className="w-full sm:w-auto"
             >
               <FiCopy className="mr-2" />
               Copy to Clipboard
@@ -249,20 +252,21 @@ export default function HistoryPage() {
 
       {/* Delete Confirmation Dialog */}
       <Dialog open={!!deleteConfirm} onOpenChange={() => setDeleteConfirm(null)}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="max-w-[95vw] sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Delete Generation?</DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-sm">
               Are you sure you want to delete the outline for &quot;{deleteConfirm?.topic}&quot;? This action cannot be undone.
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter className="gap-2">
-            <Button variant="outline" onClick={() => setDeleteConfirm(null)}>
+          <DialogFooter className="gap-2 flex-col sm:flex-row">
+            <Button variant="outline" onClick={() => setDeleteConfirm(null)} className="w-full sm:w-auto">
               Cancel
             </Button>
             <Button
               variant="destructive"
               onClick={() => deleteConfirm && handleDelete(deleteConfirm)}
+              className="w-full sm:w-auto"
             >
               Delete
             </Button>

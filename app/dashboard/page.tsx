@@ -113,29 +113,31 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">AI Content Assistant</h1>
-          <div className="flex items-center gap-4">
-            <Badge variant="outline" className="text-base px-3 py-1">
-              {credits}/10 Credits
-            </Badge>
-            <Link href="/history">
-              <Button variant="ghost" size="sm">
-                <FiClock className="mr-2" />
-                History
+        <div className="container mx-auto px-4 py-3 sm:py-4">
+          <div className="flex justify-between items-center">
+            <h1 className="text-lg sm:text-2xl font-bold">AI Content Assistant</h1>
+            <div className="flex items-center gap-2 sm:gap-4">
+              <Badge variant="outline" className="text-sm sm:text-base px-2 sm:px-3 py-1">
+                {credits}/10
+              </Badge>
+              <Link href="/history">
+                <Button variant="ghost" size="sm">
+                  <FiClock className="sm:mr-2" />
+                  <span className="hidden sm:inline">History</span>
+                </Button>
+              </Link>
+              <Button variant="ghost" size="sm" onClick={handleLogout}>
+                <FiLogOut className="sm:mr-2" />
+                <span className="hidden sm:inline">Logout</span>
               </Button>
-            </Link>
-            <Button variant="ghost" size="sm" onClick={handleLogout}>
-              <FiLogOut className="mr-2" />
-              Logout
-            </Button>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="grid md:grid-cols-2 gap-8">
+      <main className="container mx-auto px-4 py-4 sm:py-8">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-8">
           {/* Left: Input */}
           <Card>
             <CardHeader>
@@ -177,17 +179,17 @@ export default function DashboardPage() {
 
           {/* Right: Output */}
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
+            <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <CardTitle>Generated Outline</CardTitle>
               {output && (
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" onClick={copyToClipboard}>
-                    <FiCopy className="mr-2" />
-                    Copy
+                    <FiCopy className="sm:mr-2" />
+                    <span className="hidden sm:inline">Copy</span>
                   </Button>
                   <Button variant="outline" size="sm" onClick={handleRegenerate} disabled={loading}>
-                    <FiRefreshCw className="mr-2" />
-                    Regenerate
+                    <FiRefreshCw className="sm:mr-2" />
+                    <span className="hidden sm:inline">Regenerate</span>
                   </Button>
                 </div>
               )}
@@ -207,7 +209,7 @@ export default function DashboardPage() {
                 <Textarea
                   value={output}
                   readOnly
-                  className="min-h-[500px] font-mono text-sm"
+                  className="min-h-[300px] sm:min-h-[500px] font-mono text-sm"
                 />
               )}
             </CardContent>
