@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Content Assistant
+
+An AI-powered content generation tool that creates SEO-optimized blog outlines using Claude. Built with Next.js, Supabase, and the Anthropic SDK.
+
+## Features
+
+- **AI-Powered Outlines** - Generate comprehensive blog outlines with SEO-optimized titles, meta descriptions, and structured sections
+- **Real-time Streaming** - Watch content generate in real-time with streaming responses
+- **Authentication** - Secure login/signup with Supabase Auth
+- **Generation History** - View, search, copy, and delete past generations
+- **Credit System** - 10 free generations per user
+- **Mobile-Friendly** - Responsive design across all pages
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **UI**: React 19, Tailwind CSS 4, Radix UI
+- **Auth & Database**: Supabase
+- **AI**: Anthropic Claude SDK
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+- Supabase account
+- Anthropic API key
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/robKasper/ai-content-assistant.git
+   cd ai-content-assistant
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create `.env.local` with your credentials:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ANTHROPIC_API_KEY=your_anthropic_api_key
+   ```
+
+4. Set up Supabase database:
+   - Create a `generations` table with columns: `id`, `user_id`, `topic`, `keyword`, `output`, `created_at`
+   - Enable Row Level Security (RLS) for user-specific access
+
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000)
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # Start development server
+npm run build    # Production build
+npm run start    # Start production server
+npm run lint     # Run ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+├── page.tsx              # Landing page
+├── auth/
+│   ├── login/page.tsx    # Login page
+│   └── signup/page.tsx   # Signup page
+├── dashboard/page.tsx    # Main generation interface
+├── history/page.tsx      # Generation history
+└── api/generate/route.ts # AI generation endpoint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+components/
+├── ui/                   # Reusable UI components
+└── AuthCard.tsx          # Shared auth form component
 
-## Learn More
+lib/
+├── supabase/             # Supabase client config
+└── prompts/              # AI prompt templates
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Deploy on [Vercel](https://vercel.com) for the best experience with Next.js:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push to GitHub
+2. Import project in Vercel
+3. Add environment variables
+4. Deploy
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
