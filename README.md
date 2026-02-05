@@ -2,6 +2,10 @@
 
 An AI-powered content generation tool that creates SEO-optimized blog outlines using Claude. Built with Next.js, Supabase, and the Anthropic SDK.
 
+**[View Live Demo →](https://ai-content-assistant-rk.vercel.app)**
+
+![AI Content Assistant](public/screenshots/dashboard.png)
+
 ## Features
 
 - **AI-Powered Outlines** - Generate comprehensive blog outlines with SEO-optimized titles, meta descriptions, and structured sections
@@ -10,6 +14,12 @@ An AI-powered content generation tool that creates SEO-optimized blog outlines u
 - **Generation History** - View, search, copy, and delete past generations
 - **Credit System** - 10 free generations per user
 - **Mobile-Friendly** - Responsive design across all pages
+
+## Screenshots
+
+| Dashboard | Generation History |
+|-----------|-------------------|
+| ![Dashboard](public/screenshots/dashboard.png) | ![History](public/screenshots/history.png) |
 
 ## Tech Stack
 
@@ -23,7 +33,6 @@ An AI-powered content generation tool that creates SEO-optimized blog outlines u
 ### Prerequisites
 
 - Node.js 18+
-- npm, yarn, pnpm, or bun
 - Supabase account
 - Anthropic API key
 
@@ -58,15 +67,6 @@ An AI-powered content generation tool that creates SEO-optimized blog outlines u
 
 6. Open [http://localhost:3000](http://localhost:3000)
 
-## Scripts
-
-```bash
-npm run dev      # Start development server
-npm run build    # Production build
-npm run start    # Start production server
-npm run lint     # Run ESLint
-```
-
 ## Project Structure
 
 ```
@@ -90,12 +90,13 @@ lib/
 
 ## Deployment
 
-Deploy on [Vercel](https://vercel.com) for the best experience with Next.js:
+Deployed on Vercel: **[ai-content-assistant-rk.vercel.app](https://ai-content-assistant-rk.vercel.app)**
 
-1. Push to GitHub
-2. Import project in Vercel
-3. Add environment variables
-4. Deploy
+Deploy your own:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/robKasper/ai-content-assistant)
+
+Remember to add environment variables in the Vercel dashboard.
 
 ## License
 
